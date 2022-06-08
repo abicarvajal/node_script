@@ -5,6 +5,9 @@ const { get } = require('http');
 const path = require('path');
 const dir_path = path.join(__dirname,'directory');
 
+//
+createMainFolder(dir_path);
+
 let date =  new Date().getFullYear();
 //Obtener el año actual
 var anio = getAnio(date);
@@ -23,7 +26,7 @@ for(let j = 0; j<anio.length;j++){
         if(!ifExists(aux_path)){
             fs.mkdir(aux_path, (err) => {
                 if (err) {
-                    return console.error(err);
+                    // return console.error(err);
                 }
                 else{
                     for(let k = 1; k <= daysInMonth(i+1,parseInt(anio[j]));k++){
@@ -51,7 +54,7 @@ function createFolderAnio(anio){
         if(!ifExists(aux_path)){
             fs.mkdir(aux_path, (err) => {
                 if (err) {
-                    return console.error(err);
+                    // return console.error(err);
                 }
                 // console.log('Directory created successfully!');
             });
@@ -69,7 +72,15 @@ function getAnio(date){
 }
 //Comprueba si el path dado ya existe
 function ifExists(pathcito){
-    fs.exists((pathcito), exists => {
-        return !exists ? false : true;
+    fs.exists((pathcito), exist => {
+        return !exist ? false : true;
+    });
+}
+//Crea directorio "directory"
+function createMainFolder(mainpath){
+    fs.mkdir(mainpath, (err) => {
+        if(err) {
+            return console.error(err);
+        }
     });
 }
