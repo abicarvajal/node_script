@@ -1,0 +1,16 @@
+{
+  "name": "directorios",
+  "version": "1.0.0",
+  "description": "creation of folders with js and node",
+  "main": "index.js",
+  "scripts": {
+    "create":"node src/functions/creation.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "mkdir"
+  ],
+  "author": "Abigail Carvajal",
+  "license": "ISC"
+}
